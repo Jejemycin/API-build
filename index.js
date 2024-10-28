@@ -37,6 +37,24 @@ app.get("/jokes/:id", (req, res) =>{
 });
 */
 
+/* app.get("/jokes/:id", (req, res) => {
+  const id = parseInt(req.params.id);
+  let selectedJoke = null;
+
+  jokes.forEach((joke) => {
+    if (joke.id === id) {
+      selectedJoke = joke;
+    }
+  });
+
+  if (selectedJoke) {
+    res.json(selectedJoke);
+  } else {
+    res.status(404).send("Joke not found");
+  }
+});
+*/
+
 //3. GET a jokes by filtering on the joke type
 
 //4. POST a new joke

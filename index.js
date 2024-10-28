@@ -29,6 +29,13 @@ app.get("/jokes/:id", (req,res) =>{
   }
 });
 
+/*   OR
+app.get("/jokes/:id", (req, res) =>{
+  const id = parseInt(req.params.id);
+  const selectedJoke = jokes.find((joke) => joke.id === id);
+  res.json(selectedJoke);
+});
+*/
 
 //3. GET a jokes by filtering on the joke type
 

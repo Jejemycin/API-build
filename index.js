@@ -56,6 +56,38 @@ app.get("/jokes/:id", (req, res) =>{
 */
 
 //3. GET a jokes by filtering on the joke type
+app.get("/filter", (req,res)=>{
+  const type  = req.query.type;
+  console.log("Requested type:", type);
+  let selectedJokeType = [];
+  for (let i=0; i < jokes.length; i++){
+    if (jokes[i].jokeType == type){
+      selectedJokeType.push(jokes[i]);
+    }
+  }
+  if(selectedJokeType) {
+    res.json(selectedJokeType)
+  }
+  else {
+    res.status(404).send("Joke not found")
+  }
+});
+
+/*   OR
+
+app.get("/filter", (req,res)=>{
+  const type  = req.query.type;
+  console.log("Requested type:", type);
+  const selectedJokeType = jokes.filter((joke) => joke.jokeType === type);
+  if(selectedJokeType) {
+    res.json(selectedJokeType)
+  }
+  else {
+    res.status(404).send("Joke not found")
+  }
+});
+*/
+
 
 //4. POST a new joke
 
